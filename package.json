@@ -1,11 +1,15 @@
 {
-  "name": "server",
+  "name": "sr-server",
   "version": "1.0.0",
-  "main": "src/index.ts",
   "scripts": {
-    "start": "node-dev src/index.ts",
+    "dev": "node-dev src/index.ts",
+    "start": "yarn build && yarn boot",
+    "boot": "node dist/index.js",
+    "build": "rimraf dist && tsc",
     "test": "jest",
-    "tsc": "tsc"
+    "docker:build": "yarn build && docker build -t viato_sr .",
+    "docker:run": "docker run -p 3001:3000 viato_sr",
+    "dockerize": "yarn docker:build && yarn docker:run"
   },
   "author": "Marcus Sjöholm",
   "license": "ISC",
