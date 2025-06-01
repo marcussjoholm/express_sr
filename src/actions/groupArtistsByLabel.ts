@@ -1,4 +1,4 @@
-import {Playlist} from "../clients/sr";
+import { Playlist } from "../clients/sr";
 
 export const groupArtistsByLabel = (playlist: Playlist) => {
 

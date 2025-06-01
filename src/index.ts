@@ -1,7 +1,7 @@
 import express from 'express';
 import z from 'zod/v4';
 import srClient from "./clients/sr";
-import {groupArtistsByLabel} from "./actions/groupArtistsByLabel";
+import { groupArtistsByLabel } from "./actions/groupArtistsByLabel";
 
 const PORT = 3000;
 

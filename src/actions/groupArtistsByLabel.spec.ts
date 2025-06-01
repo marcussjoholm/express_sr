@@ -1,5 +1,5 @@
-import {groupArtistsByLabel} from "./groupArtistsByLabel";
-import {Playlist} from "../clients/sr";
+import { groupArtistsByLabel } from "./groupArtistsByLabel";
+import { Playlist } from "../clients/sr";
 
 describe('groupArtistsByLabel', () => {
   it('should group artists without record labels under Unknown Label', () => {
@@ -37,13 +37,19 @@ describe('groupArtistsByLabel', () => {
         recordlabel: undefined
       },
       {
-        title: 'Studentsången',
+        title: 'Studentsången Dublett',
         description: 'Gustaf (Prins Av Sverige & Norge) - Studentsången',
         artist: 'Stockholms Studentsångare, Göte Widlund',
         recordlabel: undefined
       },
       {
         title: 'Studentsången',
+        description: 'Gustaf (Prins Av Sverige & Norge) - Studentsången',
+        artist: 'Stockholms Studentsångare, Göte Widlund',
+        recordlabel: 'Different label'
+      },
+      {
+        title: 'Studentsången Dublett',
         description: 'Gustaf (Prins Av Sverige & Norge) - Studentsången',
         artist: 'Stockholms Studentsångare, Göte Widlund',
         recordlabel: 'Different label'
