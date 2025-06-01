@@ -10,14 +10,15 @@ const app = express();
 app.use(express.json());
 
 const songsRequestBodySchema = z.object({
-  channelId: z.number(),
-  startDateTime: z.date().optional(),
-  endDateTime: z.date().optional(),
-  size: z.number(),
+  channelId: z.coerce.number(),
+  size: z.coerce.number(),
+  // Hackish, there's probably a better way to do this, but this works for now
+  startDateTime: z.coerce.number().transform(t => new Date(t)).optional(),
+  endDateTime: z.coerce.number().transform(t => new Date(t)).optional(),
 })
 
-app.post('/songs', async (req, res) => {
-  const result = songsRequestBodySchema.safeParse(req.body)
+app.get('/songs', async (req, res) => {
+  const result = songsRequestBodySchema.safeParse(req.query)
 
   if (!result.success) {
     res.status(400).json({
