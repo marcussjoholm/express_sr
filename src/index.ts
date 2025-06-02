@@ -12,12 +12,12 @@ app.use(express.json());
 const songsRequestBodySchema = z.object({
   channelId: z.coerce.number(),
   size: z.coerce.number(),
-  // Hackish, there's probably a better way to do this, but this works for now
-  startDateTime: z.coerce.number().transform(t => new Date(t)).optional(),
-  endDateTime: z.coerce.number().transform(t => new Date(t)).optional(),
+  // Would validate this tighter in prod with pattern matching or similar
+  startDateTime: z.string().optional(),
+  endDateTime: z.string().optional()
 })
 
-app.get('/songs', async (req, res) => {
+app.get('/playlist', async (req, res) => {
   const result = songsRequestBodySchema.safeParse(req.query)
 
   if (!result.success) {

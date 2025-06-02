@@ -8,8 +8,8 @@ function parseMicrosoftDate(msDateString: string) {
 
 interface GetPlaylistByChannelIdParams {
   channelId: number;
-  startDateTime?: Date;
-  endDateTime?: Date
+  startDateTime?: string;
+  endDateTime?: string;
   size: number;
 }
 
@@ -38,10 +38,10 @@ const client = axios.create({
 
 const srClient = {
   getPlaylistByChannelId: async (params: GetPlaylistByChannelIdParams): Promise<Playlist> => {
-    const {channelId, startDateTime, endDateTime, size} = params;
+    const { channelId, startDateTime, endDateTime, size } = params;
 
     const data = await client.get('playlists/getplaylistbychannelid', {
-      params: {id: channelId, startDateTime, endDateTime, size, format: 'json'},
+      params: { id: channelId, startDateTime, endDateTime, size, format: 'json' },
     }).then(response => response.data.song)
 
     return playlistSchema.parse(data);

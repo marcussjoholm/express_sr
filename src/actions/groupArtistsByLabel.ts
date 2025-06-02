@@ -13,7 +13,7 @@ export const groupArtistsByLabel = (playlist: Playlist) => {
   }
 
   const sortedLabels = Object.keys(artistsByLabel).sort((a, b) =>
-    a.localeCompare(b)
+    a.localeCompare(b, 'sv')
   );
 
   const sortedArtistsByLabel: Record<string, string[]> = {};

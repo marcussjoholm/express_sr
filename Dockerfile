@@ -1,7 +1,6 @@
 FROM node:22.16.0-alpine
 LABEL authors="marcus.sjoholm"
 
-USER root
 WORKDIR /app
 
 COPY package.json ./
@@ -14,4 +13,4 @@ RUN yarn install
 COPY ./dist ./dist
 
 EXPOSE 3000
-ENTRYPOINT ["node", "dist/index.js"]
+ENTRYPOINT ["yarn", "boot"]

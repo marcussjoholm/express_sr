@@ -9,7 +9,7 @@
     "test": "jest",
     "docker:build": "yarn build && docker build -t viato_sr .",
     "docker:run": "docker run -p 3001:3000 viato_sr",
-    "dockerize": "yarn docker:build && yarn docker:run"
+    "docker": "yarn docker:build && yarn docker:run"
   },
   "author": "Marcus Sjöholm",
   "license": "ISC",
