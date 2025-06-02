@@ -3,7 +3,7 @@ import z from 'zod/v4'
 
 function parseMicrosoftDate(msDateString: string) {
   const match = /\/Date\((\d+)(?:[+-]\d+)?\)\//.exec(msDateString);
-  return match ? new Date(parseInt(match[1], 10)) : null;
+  return match ? new Date(parseInt(match[1], 10)) : undefined;
 }
 
 interface GetPlaylistByChannelIdParams {
